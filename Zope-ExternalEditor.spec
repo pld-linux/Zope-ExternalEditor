@@ -4,7 +4,7 @@ Summary:	A Zope product integrating Zope more seamlessly with client-side tools
 Summary(pl):	Dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.7.2
-Release:	1
+Release:	2
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}-src.tgz
@@ -35,10 +35,10 @@ dostêp do niego zapewnia pakiet zopeedit.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
+# install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
 cp -af {Plugins,*.py,*.gif,*.dtml,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
-cp -af man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+# cp -af man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -65,5 +65,5 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc CHANGES.txt INSTALL-UNIX.txt README.txt
-%{_mandir}/man1/*
+# %%{_mandir}/man1/*
 %{_datadir}/%{name}
