@@ -4,44 +4,47 @@ Summary:	ExternalEditor - a Zope product integrating Zope more seamlessly with c
 Summary(pl):	ExternalEditor - dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.7
-Release:	2
+Release:	3
 License:	ZPL 2.0
 Group:		Development/Tools
-Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/zopeedit-%{version}-src.tgz
-# Source0-md5:	87fe890a7f7c2506db16142bc4789b38
+Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}.tgz
+# Source0-md5:	1dac15db90bb3c320955c114f2053963
 URL:		http://sourceforge.net/projects/collective/
 BuildRequires:	python >= 2.2
 %pyrequires_eq	python-modules
 Requires:	Zope
-Requires:	python-tkinter
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define 	product_dir	/usr/lib/zope/Products
-%define		src_dir_name	zopeedit-%{version}-src
 
 %description
-ExternalEditor is a Zope product, a new way to integrate Zope more
-seamlessly with client-side tools.
+ExternalEditor is a Zope product, a new way to integrate Zope more seamlessly
+with client-side tools. 
+
+This package is supposed to be installed on Zope server, there is a zopeedit
+tool for clients.
 
 %description -l pl
 ExternalEditor jest dodatkiem do Zope, umo¿liwiaj±cym w nowy, bardziej
 przezroczysty sposób integrowaæ Zope z narzêdziami od strony klienta.
 
+Ten pakiet powinien byæ zainstalowany na serwerze Zope. Od strony klienta
+dostêp do niego zapewnia pakiet zopeedit.
+
 %prep
-%setup -q -n %{src_dir_name}
+%setup -q -n %{zope_subname}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{product_dir}/%{zope_subname},%{_mandir}/man1}
+install -d $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-install man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
-cp -af {Plugins,*.py} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+install -m 644 {*.py,*.gif,*.dtml,README.txt} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-# find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
+rm $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/*.py
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,8 +62,4 @@ fi
 %files
 %defattr(644,root,root,755)
 %doc CHANGES.txt INSTALL-UNIX.txt LICENSE.txt README.txt
-%dir %{product_dir}/%{zope_subname}
-%{product_dir}/%{zope_subname}/Plugins
-%{product_dir}/%{zope_subname}/setup*
-%attr(755,root,root) %{product_dir}/%{zope_subname}/zopeedit*
-%{_mandir}/man1/*
+%{product_dir}/%{zope_subname}
