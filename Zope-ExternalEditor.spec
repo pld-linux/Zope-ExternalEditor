@@ -5,13 +5,15 @@ Summary(pl):	ExternalEditor - dodatek do Zope lepiej intergruj±cy Zope z narzêdz
 Name:		Zope-%{zope_subname}
 Version:	0.7
 Release:	2
-License:	GNU
+License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/zopeedit-%{version}-src.tgz
 # Source0-md5:	87fe890a7f7c2506db16142bc4789b38
 URL:		http://sourceforge.net/projects/collective/
+BuildRequires:	python >= 2.2
 %pyrequires_eq	python-modules
 Requires:	Zope
+Requires:	python-tkinter
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,24 +31,17 @@ przezroczysty sposób integrowaæ Zope z narzêdziami od strony klienta.
 %prep
 %setup -q -n %{src_dir_name}
 
-%build
-mkdir docs
-mv -f README.txt CHANGES.txt INSTALL* docs
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{product_dir}/%{zope_subname},%{_mandir}/man1}
-install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
-mv -f man/* $RPM_BUILD_ROOT%{_mandir}/man1
-rm -rf man
-cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
+install man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -af {Plugins,*.py} $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
 # find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
-rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,10 +58,9 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc docs/*
+%doc CHANGES.txt INSTALL-UNIX.txt LICENSE.txt README.txt
 %dir %{product_dir}/%{zope_subname}
 %{product_dir}/%{zope_subname}/Plugins
 %{product_dir}/%{zope_subname}/setup*
-%{product_dir}/%{zope_subname}/*.txt
 %attr(755,root,root) %{product_dir}/%{zope_subname}/zopeedit*
 %{_mandir}/man1/*
