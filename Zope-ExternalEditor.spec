@@ -3,13 +3,12 @@ Summary:	A Zope product integrating Zope more seamlessly with client-side tools
 Summary(pl):	Dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.8
-Release:	2
+Release:	3
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}-src.tgz
 # Source0-md5:	5567da2a1f4ee34ebee7319e2f3df1d9
 URL:		http://sourceforge.net/projects/collective/
-BuildRequires:	python >= 2.2
 %pyrequires_eq	python-modules
 Requires:	Zope
 Requires(post,postun):  /usr/sbin/installzopeproduct
