@@ -3,12 +3,12 @@
 Summary:	A Zope product integrating Zope more seamlessly with client-side tools
 Summary(pl):	Dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
 Name:		Zope-%{zope_subname}
-Version:	0.7
-Release:	7
+Version:	0.7.2
+Release:	1
 License:	ZPL 2.0
 Group:		Development/Tools
-Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}.tgz
-# Source0-md5:	1dac15db90bb3c320955c114f2053963
+Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}-src.tgz
+# Source0-md5:	4f1b1540b8afe1088c312a0d543095d5
 URL:		http://sourceforge.net/projects/collective/
 BuildRequires:	python >= 2.2
 %pyrequires_eq	python-modules
@@ -35,8 +35,10 @@ dostêp do niego zapewnia pakiet zopeedit.
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_datadir}/%{name}
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
 
-install -m 644 {*.py,*.gif,*.dtml,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af {Plugins,*.py,*.gif,*.dtml,version.txt} $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -af man/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -62,5 +64,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc CHANGES.txt INSTALL-UNIX.txt LICENSE.txt README.txt
+%doc CHANGES.txt INSTALL-UNIX.txt README.txt
+%{_mandir}/man1/*
 %{_datadir}/%{name}
