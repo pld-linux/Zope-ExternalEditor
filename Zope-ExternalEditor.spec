@@ -9,6 +9,7 @@ Group:		Development/Tools
 Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}-src.tgz
 # Source0-md5:	5567da2a1f4ee34ebee7319e2f3df1d9
 URL:		http://sourceforge.net/projects/collective/
+BuildRequires:  python
 %pyrequires_eq	python-modules
 Requires:	Zope
 Requires(post,postun):  /usr/sbin/installzopeproduct
