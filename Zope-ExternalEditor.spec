@@ -68,4 +68,7 @@ fi
 %defattr(644,root,root,755)
 %doc docs/*
 %{_mandir}/man1/*
-%{product_dir}/%{zope_subname}
+%{product_dir}/%{zope_subname}/Plugins
+%{product_dir}/%{zope_subname}/setup*
+%{product_dir}/%{zope_subname}/*.txt
+%attr (755,root,root) %{product_dir}/%{zope_subname}/zopeedit*
