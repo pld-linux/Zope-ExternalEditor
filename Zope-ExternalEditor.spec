@@ -4,7 +4,7 @@ Summary:	ExternalEditor - a Zope product integrating Zope more seamlessly with c
 Summary(pl):	ExternalEditor - dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.7
-Release:	3
+Release:	4
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/%{zope_subname}-%{version}.tgz
@@ -13,6 +13,7 @@ URL:		http://sourceforge.net/projects/collective/
 BuildRequires:	python >= 2.2
 %pyrequires_eq	python-modules
 Requires:	Zope
+Requires:	Zope-zopeedit
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -44,7 +45,7 @@ install -m 644 {*.py,*.gif,*.dtml,README.txt} $RPM_BUILD_ROOT%{product_dir}/%{zo
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-rm $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/*.py
+# rm $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/*.py
 
 %clean
 rm -rf $RPM_BUILD_ROOT
