@@ -4,7 +4,7 @@ Summary:	ExternalEditor - a Zope product integrating Zope more seamlessly with c
 Summary(pl):	ExternalEditor - dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.7
-Release:	1
+Release:	2
 License:	GNU
 Group:		Development/Tools
 Source0:	http://zope.org/Members/Caseman/%{zope_subname}/%{version}/zopeedit-%{version}-src.tgz
@@ -45,7 +45,7 @@ cp -af * $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_comp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 %py_ocomp $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}
 
-find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
+# find $RPM_BUILD_ROOT -type f -name "*.py" -exec rm -rf {} \;;
 rm -rf $RPM_BUILD_ROOT%{product_dir}/%{zope_subname}/docs
 
 %clean
