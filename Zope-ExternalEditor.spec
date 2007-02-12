@@ -1,6 +1,6 @@
 %define		zope_subname	ExternalEditor
 Summary:	A Zope product integrating Zope more seamlessly with client-side tools
-Summary(pl):	Dodatek do Zope lepiej intergruj±cy Zope z narzêdziami od strony klienta
+Summary(pl.UTF-8):   Dodatek do Zope lepiej intergrujÄ…cy Zope z narzÄ™dziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.9.1
 Release:	1
@@ -22,11 +22,11 @@ ExternalEditor is a Zope product, a new way to integrate Zope more
 seamlessly with client-side tools. This package is supposed to be
 installed on Zope server, there is a zopeedit tool for clients.
 
-%description -l pl
-ExternalEditor jest dodatkiem do Zope, umo¿liwiaj±cym w nowy, bardziej
-przezroczysty sposób integrowaæ Zope z narzêdziami od strony klienta.
-Ten pakiet powinien byæ zainstalowany na serwerze Zope. Od strony
-klienta dostêp do niego zapewnia pakiet zopeedit.
+%description -l pl.UTF-8
+ExternalEditor jest dodatkiem do Zope, umoÅ¼liwiajÄ…cym w nowy, bardziej
+przezroczysty sposÃ³b integrowaÄ‡ Zope z narzÄ™dziami od strony klienta.
+Ten pakiet powinien byÄ‡ zainstalowany na serwerze Zope. Od strony
+klienta dostÄ™p do niego zapewnia pakiet zopeedit.
 
 %prep
 %setup -q -n %{zope_subname}
