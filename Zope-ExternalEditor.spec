@@ -1,6 +1,6 @@
 %define		zope_subname	ExternalEditor
 Summary:	A Zope product integrating Zope more seamlessly with client-side tools
-Summary(pl.UTF-8):   Dodatek do Zope lepiej intergrujący Zope z narzędziami od strony klienta
+Summary(pl.UTF-8):	Dodatek do Zope lepiej intergrujący Zope z narzędziami od strony klienta
 Name:		Zope-%{zope_subname}
 Version:	0.9.1
 Release:	1
