@@ -2,12 +2,12 @@
 Summary:	A Zope product integrating Zope more seamlessly with client-side tools
 Summary(pl.UTF-8):	Dodatek do Zope lepiej intergrujący Zope z narzędziami od strony klienta
 Name:		Zope-%{zope_subname}
-Version:	0.9.1
+Version:	0.9.3
 Release:	1
 License:	ZPL 2.0
 Group:		Development/Tools
 Source0:	http://plope.com/software/ExternalEditor/ExternalEditor-%{version}-src.tgz
-# Source0-md5:	6befe8f5af29e8b4e27d9aba0299b57c
+# Source0-md5:	6519dbddb7755d91823025d9c14adaa1
 URL:		http://plope.com/software/ExternalEditor/
 BuildRequires:	python
 BuildRequires:	rpmbuild(macros) >= 1.268
